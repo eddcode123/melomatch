@@ -1,11 +1,13 @@
-const apiKey = 'afa8075b695333e63279bf9ab0bf8be8';
+#!/usr/bin/env node
+require('dotenv').config()
+const apiKey = process.env.apiKey;
 const url = `https://ws.audioscrobbler.com/2.0/?method=chart.gettopartists&api_key=${apiKey}&format=json`;
 
 async function getTopFive() {
     try {
         const response = await fetch(url);
         if (!response.ok) {
-            throw new Error(`Request to API failed with code ${response.status}`);
+            throw new Error(`Request to API failed with status ${response.status}`);
         }
         const data = await response.json();
 
@@ -13,17 +15,16 @@ async function getTopFive() {
             const artists = data.artists.artist.slice(0, 5).map(artist => artist.name);
             return artists;
         } else {
-            throw new Error("Invalid Data format");
+            throw new Error("Invalid data format received");
         }
     } catch (error) {
-        console.error(`Fetch error: ${error}`);
+        console.error(`Fetch error: ${error.message}`);
     }
 }
-
 async function getArtistImage(artists) {
     try {
-        const clientId = "89d183fbb7b24c1c903a9578228937b5";
-        const clientSecret = "05a876d25d5741e9a9a9a275c18df22e";
+        const clientId = process.env.clientId
+        const clientSecret = process.env.clientSecret
         const basicAuth = btoa(`${clientId}:${clientSecret}`);
         const tokenEndpoint = 'https://accounts.spotify.com/api/token';
 
