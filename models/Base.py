@@ -61,7 +61,7 @@ class Song(Base):
 Base.metadata.create_all(engine)
 
 # how i inserted artist data in the database
-"""
+
 # Extract artist data
 def get_artist_names():
     with open('/home/asavage/Downloads/artists.csv', mode='r') as csv_file:
@@ -85,7 +85,7 @@ session.commit()
 
 #artists = get_artist_names('/home/asavage/Downloads/artists.csv')
 
- """
+
 # Populate database
 Session  = sessionmaker(bind=engine)
 session = Session()
@@ -95,10 +95,11 @@ session = Session()
 # the add_data fuction also uses lastfm api to get missing data of every song.
 # it also adds the missing feilds in the music data
 # add geners to Genre table
-""" spotify_genres = fetch_spotify_genres()
+
+spotify_genres = fetch_spotify_genres()
 generes = [Genre(name=name) for name in spotify_genres]
 session.bulk_save_objects(generes)
-session.commit() """
+session.commit()
 
 music_data = add_data('/home/asavage/Downloads/songs.csv') 
  # adding data to songs table 
