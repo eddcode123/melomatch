@@ -5,6 +5,18 @@ body {
   font-family: "Montserrat";
   color: white;
 }
+.headd {
+  height: 100%;
+  font-size: 2.8rem;
+  font-family: "Jersey 10", sans-serif;
+  color: black;
+}
+.about {
+  height: 100%;
+  font-size: 1.3rem;
+  font-family: "Montserrat";
+  color: black;
+}
 
 .gradient {
   background: rgb(9, 9, 121);
@@ -17,6 +29,10 @@ body {
 
 .image--size {
   width: 400px;
+  height: auto;
+}
+.image__size {
+  width: auto;
   height: auto;
 }
 .brand {
