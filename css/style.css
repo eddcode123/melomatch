@@ -5,19 +5,30 @@ body {
   font-family: "Montserrat";
   color: white;
 }
-.headd {
+.head-about {
   height: 100%;
   font-size: 2.8rem;
   font-family: "Jersey 10", sans-serif;
   color: black;
 }
-.about {
+.head-features {
+  height: 100%;
+  font-size: 2.8rem;
+  font-family: "Jersey 10", sans-serif;
+  color: whitesmoke;
+}
+.para-about {
   height: 100%;
   font-size: 1.3rem;
   font-family: "Montserrat";
   color: black;
 }
-
+.para-features {
+  height: 100%;
+  font-size: 1.3rem;
+  font-family: "Montserrat";
+  color: white;
+}
 .gradient {
   background: rgb(9, 9, 121);
   background: linear-gradient(
@@ -27,13 +38,23 @@ body {
   );
 }
 
+.bakfeatures {
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(52, 95, 213, 1) 35%,
+    rgba(0, 212, 255, 1) 100%
+  );
+}
+
 .image--size {
   width: 400px;
   height: auto;
 }
 .image__size {
-  width: auto;
-  height: auto;
+  width: 100%;
+  height: 100%;
 }
 .brand {
   color: red;
