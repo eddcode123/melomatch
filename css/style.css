@@ -80,9 +80,8 @@ body {
   height: auto;
 }
 .image-login {
-  width: 500px;
-  height: 500px;
-  object-fit: cover;
+  width: 80%;
+  height: 80%;
 }
 .image__size {
   width: 70%;

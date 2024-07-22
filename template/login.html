@@ -17,29 +17,28 @@
     />
   </head>
   <body class="login-gradient flex-container">
-    <div class="container pt-5">
+    <div class="container">
       <div class="row g-3">
-        <div class="col">
-            <!--image section -->
-            <img
-              src="../static/img/record.jpg"
-              class="img-fluid image-login"
-              alt="guitar"
-            />
-          </div>
-        <div class="col">
-          <div class="g-5 text-center">
+        <div class="col-md-6 d-flex justify-content-center align-items-center">
+          <!--image section -->
+          <img
+            src="../static/img/record.jpg"
+            class="img-fluid image-login"
+            alt="guitar"
+          />
+        </div>
+        <div class="col-md-6">
+          <div class="text-center">
             <!-- Company logo -->
             <a class="navbar-brand" href="#"
               ><img
                 src="../static/img/logo-no-background.png"
                 alt="company logo"
                 class="logo"
-                alt=""
             /></a>
-            <div class="row g-3">
-              <!--login form -->
-              <div class="col g-5">
+            <!--login form -->
+            <form>
+              <div class="mb-3">
                 <input
                   type="text"
                   class="form-control"
@@ -47,20 +46,31 @@
                   aria-label="username"
                 />
               </div>
-            </div>
-            <div class="row g-3">
-              <div class="col g-5">
+              <div class="mb-3">
                 <input
                   type="password"
                   class="form-control"
-                  placeholder="password"
+                  placeholder="Password"
                   aria-label="password"
                 />
               </div>
-            </div>
-            <div class="row g-3">
-               <a href="" class="text-end login-font">Forgot your password?</a>>
-            </div>
+              <div class="mb-3 text-end">
+                <a href="#" class="login-font">Forgot your password?</a>
+              </div>
+              <div class="d-grid mb-3">
+                <button class="btn btn-primary" type="button">Login</button>
+              </div>
+              <div class="form-check text-start">
+                <input
+                  type="checkbox"
+                  class="form-check-input"
+                  id="rememberme"
+                />
+                <label class=" login-font form-check-label" for="rememberme"
+                  >Remember me</label
+                >
+              </div>
+            </form>
           </div>
         </div>
       </div>
@@ -71,7 +81,7 @@
     <script src="../static/js/jquery.js" type="text/javascript"></script>
     <!-- Script to toggle show password -->
     <script>
-      /// code to check email format
+      // Code to check email format
     </script>
   </body>
 </html>
