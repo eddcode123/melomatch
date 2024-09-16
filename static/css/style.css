@@ -6,6 +6,9 @@ body {
   color: white;
   margin: 0;
 }
+body a {
+  text-decoration: none;
+}
 .flex-container {
   display: flex;
   justify-content: center;
@@ -74,14 +77,22 @@ body {
     rgba(0, 212, 255, 1) 100%
   );
 }
-
+.homepage {
+  background: rgb(72, 72, 77);
+  background: linear-gradient(
+    90deg,
+    rgba(72, 72, 77, 1) 0%,
+    rgba(46, 46, 48, 1) 35%,
+    rgba(114, 119, 120, 1) 100%
+  );
+}
 .image--size {
   width: 400px;
   height: auto;
 }
 .image-login {
-  width: 70%;
-  height: 70%;
+  width: 80%;
+  height: 80%;
 }
 .image__size {
   width: 70%;
@@ -126,4 +137,30 @@ body {
   font-style: normal;
   text-align: center;
   font-size: 1.8rem;
+}
+
+.icon-spacing {
+  margin-right: 10px; /* Adjust the value as needed */
+}
+
+.icon-spacing:last-child {
+  margin-right: 0; /* Remove margin from the last icon */
+}
+.userprofile {
+  width: 40px;
+  height: 40px;
+}
+
+.navbar-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+.navbar-nav .form-control {
+  max-width: 500px; /* Adjust as needed */
+  width: 100%; 
+}
+.searchinput[type="search"] {
+  width: 500px !important; /* Adjust width as needed */
 }
