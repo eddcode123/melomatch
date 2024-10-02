@@ -147,10 +147,10 @@ body a {
   margin-right: 0; /* Remove margin from the last icon */
 }
 .userprofile {
+  clip-path: circle();
   width: 40px;
   height: 40px;
 }
-
 .navbar-nav {
   display: flex;
   align-items: center;
@@ -163,4 +163,43 @@ body a {
 }
 .searchinput[type="search"] {
   width: 500px !important; /* Adjust width as needed */
+}
+.hero-nav .active{
+
+	color: red!important;
+	background-color: transparent!important;
+}
+
+.hero-nav .active::after{
+
+	content: '';
+	background-color: red;
+	height:2px;
+	display: block;
+	margin-top: 5px;
+}
+
+/* music artcover size for homepage */
+.artcover {
+  width: 50px;
+  height: 50px; ;
+  object-fit: cover;
+}
+/* songs background color */
+.song-color{
+  background-color: #0b1828;
+  transition: all 0.3s ease;
+}
+/* add hover animation */
+.song-color:hover {
+  border: solid thin grey;
+  cursor: pointer;
+  transform: translateY(-10px);
+}
+/* Home background image */
+.home-back-img {
+  background-image: url('../img/Muzik.jpg');
+	min-height: 500px;
+	background-position: 50% 50%;
+	background-size: 100%;
 }

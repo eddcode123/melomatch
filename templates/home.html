@@ -21,32 +21,41 @@
   </head>
   <body class="homepage">
     <!-- Navigation bar -->
-    <nav class="navbar navbar-expand-lg bg-dark border-bottom border-body fixed-top" data-bs-theme="dark">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#"><img src="../static/img/logo-no-background.png" alt="company logo" class="logo"></a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNavAltMarkup"
-          aria-controls="navbarNavAltMarkup"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <img src="../static/img/logo-no-background.png" alt="company logo" class="logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
-          <div class="navbar-nav justify-content-center">
-            <form class="d-flex mx-auto" role="search">
-              <input class="form-control me-2 searchinput" type="search" placeholder="Search for music" aria-label="Search"> 
+        <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+          <ul class="navbar-nav mx-auto">
+            <div class="navbar-nav">
+              <input
+                class="form-control me-2"
+                type="search"
+                placeholder="Search for music"
+                aria-label="Search"
+              />
               <button class="btn btn-danger" type="submit">
                 <i class="bi bi-search"></i>
               </button>
-            </form>
-            <img src="../static/img/profile.jpg" class="userprofile ms-4 d-none d-md-block rounded-circle">
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Hi {{username}}
+            </div>
+            <div class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <img
+                  src="../static/img/profile.jpg"
+                  class="userprofile"
+                  alt="Profile"
+                />
+                {{Hi, username}}
               </a>
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="#">Account</a></li>
@@ -54,14 +63,95 @@
                 <li><a class="dropdown-item" href="#">Logout</a></li>
               </ul>
             </li>
-          </div>
+          </ul>
         </div>
       </div>
     </nav>
+    <!--end of nav -->
+    <!-- start of content -->
+     <header class="page-header">
+      <div class="container-fluid pt-5 home-back-img">
+        <ul class=" hero-nav nav nav-pills mb-3" id="pills-tab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active text-white" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-all" aria-selected="true">All</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link text-white id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-music" aria-selected="false">Music</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link text-white" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-podcast" aria-selected="false">Recommended</button>
+          </li>
+        </ul>
+        <div class="tab-content" id="pills-tabContent">
+          <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+            <!--start of songs list in tab-->
+            <div class="m-1 ms-4 col-md-6 row song-color align-items-center">
+              <div id="no1" class="col-1">01</div>
+              <div class="col d-flex">
+                <img src="../static/img/guitar.jpg" alt="artcover" class="artcover rounded m-1" id="art1">
+                <div class="ms-1">
+                  <div id="title1">Song name</div>
+                    <small id="desc1">song description</small>
+                </div>
+              </div>
+              <div class="col-2" id="dur1">5:00 <i class="bi bi-play-fill"></i></div>
+            </div>
+            <!--start of songs list in tab-->
+            <div class="m-1 ms-4 col-md-6 row song-color align-items-center">
+              <div id="no2" class="col-1">01</div>
+              <div class="col d-flex">
+                <img src="../static/img/guitar.jpg" alt="artcover" class="artcover rounded m-1" id="art2">
+                <div class="ms-1">
+                  <div id="title2">Song name</div>
+                    <small id="desc2">song description</small>
+                </div>
+              </div>
+              <div class="col-2" id="dur2">5:00 <i class="bi bi-play-fill"></i></div>
+            </div>
+            <!--start of songs list in tab-->
+            <div class="m-1 ms-4 col-md-6 row song-color align-items-center">
+              <div id="no3" class="col-1">01</div>
+              <div class="col d-flex">
+                <img src="../static/img/guitar.jpg" alt="artcover" class="artcover rounded m-1" id="art3">
+                <div class="ms-1">
+                  <div id="title3">Song name</div>
+                    <small id="desc3">song description</small>
+                </div>
+              </div>
+              <div class="col-2" id="dur3">5:00 <i class="bi bi-play-fill"></i></div>
+            </div>
+            <!--start of songs list in tab-->
+            <div class="m-1 ms-4 col-md-6 row song-color align-items-center">
+              <div id="no4" class="col-1">01</div>
+              <div class="col d-flex">
+                <img src="../static/img/guitar.jpg" alt="artcover" class="artcover rounded m-1" id="art4">
+                <div class="ms-1">
+                  <div id="title4">Song name</div>
+                    <small id="desc4">song description</small>
+                </div>
+              </div>
+              <div class="col-2" id="dur4">5:00 <i class="bi bi-play-fill"></i></div>
+            </div>
+            <!--start of songs list in tab-->
+            <div class="m-1 ms-4 col-md-6 row song-color align-items-center">
+              <div id="no5" class="col-1">01</div>
+              <div class="col d-flex">
+                <img src="../static/img/guitar.jpg" alt="artcover" class="artcover rounded m-1" id="art5">
+                <div class="ms-1">
+                  <div id="title5">Song name</div>
+                    <small id="desc5">song description</small>
+                </div>
+              </div>
+              <div class="col-2" id="dur5">5:00 <i class="bi bi-play-fill"></i></div>
+            </div>
+            <!--end of song list in tab-->
+          </div>
+          <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">2</div>
+          <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">3</div>
+        </div>
+     </header>
+    <!-- Music content end -->
     <!-- Bootstrap and jQuery JS -->
     <script src="../static/js/bootstrap.bundle.js"></script>
-    <script src="../static/js/jquery.js" type="text/javascript"></script>
-    <!-- Script to toggle show password -->
   </body>
 </html>
-
