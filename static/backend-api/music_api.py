@@ -76,4 +76,4 @@ def get_random_10songs():
 
 # starting server
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
