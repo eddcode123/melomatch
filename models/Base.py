@@ -83,6 +83,8 @@ artists_to_insert = [Artist(name=name) for name in artists]
 session.bulk_save_objects(artists_to_insert)
 session.commit()
 
+print("artist names added to artist ")
+
 #artists = get_artist_names('/home/asavage/Downloads/artists.csv')
 
 

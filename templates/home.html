@@ -19,7 +19,7 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
     />
   </head>
-  <body class="homepage">
+  <body class="home-bck-color">
     <!-- Navigation bar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container">
@@ -70,88 +70,331 @@
     <!--end of nav -->
     <!-- start of content -->
      <header class="page-header">
-      <div class="container-fluid pt-5 home-back-img">
-        <ul class=" hero-nav nav nav-pills mb-3" id="pills-tab" role="tablist">
-          <li class="nav-item" role="presentation">
-            <button class="nav-link active text-white" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-all" aria-selected="true">All</button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button class="nav-link text-white id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-music" aria-selected="false">Music</button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button class="nav-link text-white" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-podcast" aria-selected="false">Recommended</button>
-          </li>
-        </ul>
-        <div class="tab-content" id="pills-tabContent">
-          <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-            <!--start of songs list in tab-->
-            <div class="m-1 ms-4 col-md-6 row song-color align-items-center">
-              <div id="no1" class="col-1">01</div>
-              <div class="col d-flex">
-                <img src="../static/img/guitar.jpg" alt="artcover" class="artcover rounded m-1" id="art1">
-                <div class="ms-1">
-                  <div id="title1">Song name</div>
-                    <small id="desc1">song description</small>
-                </div>
-              </div>
-              <div class="col-2" id="dur1">5:00 <i class="bi bi-play-fill"></i></div>
+      <div class="container-fluid pt-5">
+        <div class="row">
+          <div class="col-3 lib-margin">
+            <!--user music library and playlist -->
+            <button type="button" class="btn btn-dark mt-auto">
+              <h6 class="library-font">
+                <i class="bi bi-collection-fill"></i>
+                Your library
+              </h6>
+            </button>
+            <div class="text-end" style="margin-top: 10px;">
+              <!-- button to create new playlist -->
+              <button type="button" class="btn btn-dark mt-auto">
+                <i class="bi bi-plus-circle-fill"></i>
+              </button>
             </div>
-            <!--start of songs list in tab-->
-            <div class="m-1 ms-4 col-md-6 row song-color align-items-center">
-              <div id="no2" class="col-1">01</div>
-              <div class="col d-flex">
-                <img src="../static/img/guitar.jpg" alt="artcover" class="artcover rounded m-1" id="art2">
-                <div class="ms-1">
-                  <div id="title2">Song name</div>
-                    <small id="desc2">song description</small>
-                </div>
-              </div>
-              <div class="col-2" id="dur2">5:00 <i class="bi bi-play-fill"></i></div>
+            <!-- playlist content goes here -->
+            <div class="row overflow">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item-dark">An item</li>
+                <li class="list-group-item-dark">A second item</li>
+                <li class="list-group-item-dark">A third item</li>
+                <li class="list-group-item-dark">A fourth item</li>
+                <li class="list-group-item-dark">And a fifth one</li>
+              </ul>
             </div>
-            <!--start of songs list in tab-->
-            <div class="m-1 ms-4 col-md-6 row song-color align-items-center">
-              <div id="no3" class="col-1">01</div>
-              <div class="col d-flex">
-                <img src="../static/img/guitar.jpg" alt="artcover" class="artcover rounded m-1" id="art3">
-                <div class="ms-1">
-                  <div id="title3">Song name</div>
-                    <small id="desc3">song description</small>
-                </div>
-              </div>
-              <div class="col-2" id="dur3">5:00 <i class="bi bi-play-fill"></i></div>
-            </div>
-            <!--start of songs list in tab-->
-            <div class="m-1 ms-4 col-md-6 row song-color align-items-center">
-              <div id="no4" class="col-1">01</div>
-              <div class="col d-flex">
-                <img src="../static/img/guitar.jpg" alt="artcover" class="artcover rounded m-1" id="art4">
-                <div class="ms-1">
-                  <div id="title4">Song name</div>
-                    <small id="desc4">song description</small>
-                </div>
-              </div>
-              <div class="col-2" id="dur4">5:00 <i class="bi bi-play-fill"></i></div>
-            </div>
-            <!--start of songs list in tab-->
-            <div class="m-1 ms-4 col-md-6 row song-color align-items-center">
-              <div id="no5" class="col-1">01</div>
-              <div class="col d-flex">
-                <img src="../static/img/guitar.jpg" alt="artcover" class="artcover rounded m-1" id="art5">
-                <div class="ms-1">
-                  <div id="title5">Song name</div>
-                    <small id="desc5">song description</small>
-                </div>
-              </div>
-              <div class="col-2" id="dur5">5:00 <i class="bi bi-play-fill"></i></div>
-            </div>
-            <!--end of song list in tab-->
           </div>
-          <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">2</div>
-          <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">3</div>
+        <div class="col-7">
+          <ul class=" hero-nav nav nav-pills mb-3" id="pills-tab" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active text-white" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-all" aria-selected="true">All</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link text-white id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-music" aria-selected="false">New realese</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link text-white" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-podcast" aria-selected="false">Trending</button>
+            </li>
+          </ul>
+          <div class="tab-content" id="pills-tabContent">
+            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+              <!--start of songs list in tab-->
+              <!-- javascript to request music data from mysql database using backend api -->
+               <script>
+
+               </script>
+               <!-- End of Javascript code -->
+              <div class="m-1 ms-4 col-md-6 row song-color align-items-center">
+                <div id="no1" class="col-1">01</div>
+                <div class="col d-flex">
+                  <img src="../static/img/guitar.jpg" alt="artcover" class="artcover rounded m-1" id="art1">
+                  <div class="ms-1">
+                    <div id="title1">Song name</div>
+                      <small id="desc1">song description</small>
+                  </div>
+                </div>
+                <div class="col-2" id="dur1">5:00 <i class="bi bi-play-fill"></i></div>
+              </div>
+              <!--start of songs list in tab-->
+              <div class="m-1 ms-4 col-md-6 row song-color align-items-center">
+                <div id="no2" class="col-1">01</div>
+                <div class="col d-flex">
+                  <img src="../static/img/guitar.jpg" alt="artcover" class="artcover rounded m-1" id="art2">
+                  <div class="ms-1">
+                    <div id="title2">Song name</div>
+                      <small id="desc2">song description</small>
+                  </div>
+                </div>
+                <div class="col-2" id="dur2">5:00 <i class="bi bi-play-fill"></i></div>
+              </div>
+              <!--start of songs list in tab-->
+              <div class="m-1 ms-4 col-md-6 row song-color align-items-center">
+                <div id="no3" class="col-1">01</div>
+                <div class="col d-flex">
+                  <img src="../static/img/guitar.jpg" alt="artcover" class="artcover rounded m-1" id="art3">
+                  <div class="ms-1">
+                    <div id="title3">Song name</div>
+                      <small id="desc3">song description</small>
+                  </div>
+                </div>
+                <div class="col-2" id="dur3">5:00 <i class="bi bi-play-fill"></i></div>
+              </div>
+              <!--start of songs list in tab-->
+              <div class="m-1 ms-4 col-md-6 row song-color align-items-center">
+                <div id="no4" class="col-1">01</div>
+                <div class="col d-flex">
+                  <img src="../static/img/guitar.jpg" alt="artcover" class="artcover rounded m-1" id="art4">
+                  <div class="ms-1">
+                    <div id="title4">Song name</div>
+                      <small id="desc4">song description</small>
+                  </div>
+                </div>
+                <div class="col-2" id="dur4">5:00 <i class="bi bi-play-fill"></i></div>
+              </div>
+              <!--start of songs list in tab-->
+              <div class="m-1 ms-4 col-md-6 row song-color align-items-center">
+                <div id="no5" class="col-1">01</div>
+                <div class="col d-flex">
+                  <img src="../static/img/guitar.jpg" alt="artcover" class="artcover rounded m-1" id="art5">
+                  <div class="ms-1">
+                    <div id="title5">Song name</div>
+                      <small id="desc5">song description</small>
+                  </div>
+                </div>
+                <div class="col-2" id="dur5">5:00 <i class="bi bi-play-fill"></i></div>
+              </div>
+              <!--end of song list in tab-->
+            </div>
+            <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+              <div class="m-1 ms-4 col-md-6 row song-color align-items-center">
+                <div id="no1" class="col-1">01</div>
+                <div class="col d-flex">
+                  <img src="../static/img/guitar.jpg" alt="artcover" class="artcover rounded m-1" id="art1">
+                  <div class="ms-1">
+                    <div id="title1">Song name</div>
+                      <small id="desc1">song description</small>
+                  </div>
+                </div>
+                <div class="col-2" id="dur1">5:00 <i class="bi bi-play-fill"></i></div>
+              </div>
+              <!--start of songs list in tab-->
+              <div class="m-1 ms-4 col-md-6 row song-color align-items-center">
+                <div id="no2" class="col-1">01</div>
+                <div class="col d-flex">
+                  <img src="../static/img/guitar.jpg" alt="artcover" class="artcover rounded m-1" id="art2">
+                  <div class="ms-1">
+                    <div id="title2">Song name</div>
+                      <small id="desc2">song description</small>
+                  </div>
+                </div>
+                <div class="col-2" id="dur2">5:00 <i class="bi bi-play-fill"></i></div>
+              </div>
+              <!--start of songs list in tab-->
+              <div class="m-1 ms-4 col-md-6 row song-color align-items-center">
+                <div id="no3" class="col-1">01</div>
+                <div class="col d-flex">
+                  <img src="../static/img/guitar.jpg" alt="artcover" class="artcover rounded m-1" id="art3">
+                  <div class="ms-1">
+                    <div id="title3">Song name</div>
+                      <small id="desc3">song description</small>
+                  </div>
+                </div>
+                <div class="col-2" id="dur3">5:00 <i class="bi bi-play-fill"></i></div>
+              </div>
+              <!--start of songs list in tab-->
+              <div class="m-1 ms-4 col-md-6 row song-color align-items-center">
+                <div id="no4" class="col-1">01</div>
+                <div class="col d-flex">
+                  <img src="../static/img/guitar.jpg" alt="artcover" class="artcover rounded m-1" id="art4">
+                  <div class="ms-1">
+                    <div id="title4">Song name</div>
+                      <small id="desc4">song description</small>
+                  </div>
+                </div>
+                <div class="col-2" id="dur4">5:00 <i class="bi bi-play-fill"></i></div>
+              </div>
+              <!--start of songs list in tab-->
+              <div class="m-1 ms-4 col-md-6 row song-color align-items-center">
+                <div id="no5" class="col-1">01</div>
+                <div class="col d-flex">
+                  <img src="../static/img/guitar.jpg" alt="artcover" class="artcover rounded m-1" id="art5">
+                  <div class="ms-1">
+                    <div id="title5">Song name</div>
+                      <small id="desc5">song description</small>
+                  </div>
+                </div>
+                <div class="col-2" id="dur5">5:00 <i class="bi bi-play-fill"></i></div>
+              </div>
+              <!--end of song list in tab-->
+            </div>
+            <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+              <div class="m-1 ms-4 col-md-6 row song-color align-items-center">
+                <div id="no1" class="col-1">01</div>
+                <div class="col d-flex">
+                  <img src="../static/img/guitar.jpg" alt="artcover" class="artcover rounded m-1" id="art1">
+                  <div class="ms-1">
+                    <div id="title1">Song name</div>
+                      <small id="desc1">song description</small>
+                  </div>
+                </div>
+                <div class="col-2" id="dur1">5:00 <i class="bi bi-play-fill"></i></div>
+              </div>
+              <!--start of songs list in tab-->
+              <div class="m-1 ms-4 col-md-6 row song-color align-items-center">
+                <div id="no2" class="col-1">01</div>
+                <div class="col d-flex">
+                  <img src="../static/img/guitar.jpg" alt="artcover" class="artcover rounded m-1" id="art2">
+                  <div class="ms-1">
+                    <div id="title2">Song name</div>
+                      <small id="desc2">song description</small>
+                  </div>
+                </div>
+                <div class="col-2" id="dur2">5:00 <i class="bi bi-play-fill"></i></div>
+              </div>
+              <!--start of songs list in tab-->
+              <div class="m-1 ms-4 col-md-6 row song-color align-items-center">
+                <div id="no3" class="col-1">01</div>
+                <div class="col d-flex">
+                  <img src="../static/img/guitar.jpg" alt="artcover" class="artcover rounded m-1" id="art3">
+                  <div class="ms-1">
+                    <div id="title3">Song name</div>
+                      <small id="desc3">song description</small>
+                  </div>
+                </div>
+                <div class="col-2" id="dur3">5:00 <i class="bi bi-play-fill"></i></div>
+              </div>
+              <!--start of songs list in tab-->
+              <div class="m-1 ms-4 col-md-6 row song-color align-items-center">
+                <div id="no4" class="col-1">01</div>
+                <div class="col d-flex">
+                  <img src="../static/img/guitar.jpg" alt="artcover" class="artcover rounded m-1" id="art4">
+                  <div class="ms-1">
+                    <div id="title4">Song name</div>
+                      <small id="desc4">song description</small>
+                  </div>
+                </div>
+                <div class="col-2" id="dur4">5:00 <i class="bi bi-play-fill"></i></div>
+              </div>
+              <!--start of songs list in tab-->
+              <div class="m-1 ms-4 col-md-6 row song-color align-items-center">
+                <div id="no5" class="col-1">01</div>
+                <div class="col d-flex">
+                  <img src="../static/img/guitar.jpg" alt="artcover" class="artcover rounded m-1" id="art5">
+                  <div class="ms-1">
+                    <div id="title5">Song name</div>
+                      <small id="desc5">song description</small>
+                  </div>
+                </div>
+                <div class="col-2" id="dur5">5:00 <i class="bi bi-play-fill"></i></div>
+              </div>
+              <!--end of song list in tab-->
+            </div>
+          </div>
+          <!-- start of content user likes -->
+          <div class="row">
+            <!-- "Made For You" Section -->
+            <button type="button" class="btn btn-outline-secondary button w-50 text-start">
+              <h5 class="home-font">Made For You</h5>
+            </button>
+            <div class="row">
+              <div class="col">
+                <img src="../static/img/record.jpg" class="for-you" alt="artcover">
+                <h6 class="text-white">Music description</h6>
+              </div>
+            </div>
+          </div>
+          <!-- Recommended Section -->
+          <div class="row">
+            <button type="button" class="btn btn-outline-secondary button w-50 text-start">
+              <h5 class="home-font">Recommended For You</h5>
+            </button>
+            <div class="row">
+              <div class="col">
+                <img src="../static/img/record.jpg" class="for-you" alt="artcover">
+                <h6 class="text-white">Music description</h6>
+              </div>
+            </div>
+          </div>
+          <!-- Favourite artist section -->
+          <div class="row">
+            <button type="button" class="btn btn-outline-secondary button w-50 text-start">
+              <h5 class="home-font">Your Favorite Artist</h5>
+            </button>
+            <div class="row">
+              <div class="col">
+                <img src="../static/img/record.jpg" class="for-you" alt="artcover">
+                <h6 class="text-white">Music description</h6>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-2">
+          <!-- song detail -->
+          <img src="../static/img/artcover/cover.jpg" class="music-artcover image-fluid" alt="artcover">
+          <div class="col">
+            <p>
+              More details on the song
+            </p>
+          </div>
         </div>
      </header>
-    <!-- Music content end -->
-    <!-- Bootstrap and jQuery JS -->
-    <script src="../static/js/bootstrap.bundle.js"></script>
+     <div class="container-fluid gradient">
+    </div>    
+    <!-- footer section -->
+    <footer class="bg-dark text-white pt-5 pd-4 mt-5">
+      <div class="container text-center text-md-left">
+        <div class="row text-center text-md-left">
+          <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+            <h6 class="text-uppercase md-4 font-weight-bold text-danger footer">COMPANY</h6>
+             <li class="list-group-item"><a class="footer-font link-light link-offset-2 link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="#">About MeloMatch</a></li>
+              <li class="list-group-item"><a class="footer-font link-light link-offset-2 link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="#">Contact Us</a></li>            
+          </div>
+          <div class="col-md-2 col-lg-2 col-xl-3 mx-auto mt-3">
+            <h6 class="text-uppercase md-4 font-weight-bold text-danger footer">HELP</h6>
+            <li class="list-group-item"><a class="footer-font link-light link-offset-2 link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="#">Track My Music</a></li>
+            <li class="list-group-item"><a class="footer-font link-light link-offset-2 link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="#">Community Support</a></li>
+            <li class="list-group-item"><a class="footer-font link-light link-offset-2 link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="#">Community Guidelines</a></li>
+            <li class="list-group-item"><a class="footer-font link-light link-offset-2 link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="#">Help</a></li>
+          </div>
+          <div class="col-md-2 col-lg-2 col-xl-3 mx-auto mt-3">
+            <h6 class="text-uppercase md-4 font-weight-bold text-danger footer">Account</h6>
+            <li class="list-group-item"><a class=" footer-font link-light link-offset-2 link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="#">Signup</a></li>
+            <li class="list-group-item"><a class=" footer-font link-light link-offset-2 link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="#">Login</a></li>
+            <li class="list-group-item"><a class=" footer-font link-light link-offset-2 link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="#">Subscribe</a></li>
+          </div>
+          <div class="justify-content-between col-md-2 col-lg-2 col-xl-3 mx-auto mt-3">
+            <h6 class="md-4 font-weight-bold text-danger footer">Follow Us</h6>
+            <a href="https://twitter.com" class="icon-spacing h5" target="_blank" rel="noopener noreferrer">
+              <i class="bi bi-twitter-x"></i>
+            </a>
+            <a href="https://instagram.com" class="icon-spacing h5" target="_blank" rel="noopener noreferrer">
+              <i class="bi bi-instagram"></i>
+            </a>
+            <a href="https://facebook.com" class="icon-spacing h5" target="_blank" rel="noopener noreferrer">
+              <i class="bi bi-facebook"></i>
+            </a>
+            <a href="https://youtube.com" class="icon-spacing h5" target="_blank" rel="noopener noreferrer">
+              <i class="bi bi-youtube"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- footer end -->
   </body>
+   <!-- Bootstrap and jQuery JS -->
+    <script src="../static/js/bootstrap.bundle.js"></script>
 </html>

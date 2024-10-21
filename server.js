@@ -34,7 +34,6 @@ async function getTopFive() {
 async function getArtistImage(artists) {
     try {
         const clientId = process.env.clientId
-        const clientSecret = process.env.clientSecret
         const basicAuth = btoa(`${clientId}:${clientSecret}`);
         const tokenEndpoint = 'https://accounts.spotify.com/api/token';
 

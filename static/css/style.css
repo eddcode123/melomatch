@@ -159,34 +159,32 @@ body a {
 }
 .navbar-nav .form-control {
   max-width: 500px; /* Adjust as needed */
-  width: 100%; 
+  width: 100%;
 }
 .searchinput[type="search"] {
   width: 500px !important; /* Adjust width as needed */
 }
-.hero-nav .active{
-
-	color: red!important;
-	background-color: transparent!important;
+.hero-nav .active {
+  color: red !important;
+  background-color: transparent !important;
 }
 
-.hero-nav .active::after{
-
-	content: '';
-	background-color: red;
-	height:2px;
-	display: block;
-	margin-top: 5px;
+.hero-nav .active::after {
+  content: "";
+  background-color: red;
+  height: 2px;
+  display: block;
+  margin-top: 5px;
 }
 
 /* music artcover size for homepage */
 .artcover {
   width: 50px;
-  height: 50px; ;
+  height: 50px;
   object-fit: cover;
 }
 /* songs background color */
-.song-color{
+.song-color {
   background-color: #0b1828;
   transition: all 0.3s ease;
 }
@@ -198,8 +196,57 @@ body a {
 }
 /* Home background image */
 .home-back-img {
-  background-image: url('../img/Muzik.jpg');
-	min-height: 500px;
-	background-position: 50% 50%;
-	background-size: 100%;
+  background-image: url("../img/Muzik.jpg");
+  min-height: 500px;
+  background-position: 50% 50%;
+  background-size: 100%;
+}
+.home-bck-color {
+  background: rgb(72, 72, 74);
+  background: linear-gradient(
+    90deg,
+    rgba(72, 72, 74, 1) 0%,
+    rgba(21, 21, 23, 1) 35%,
+    rgba(41, 43, 43, 1) 100%
+  );
+}
+.library-font {
+  color: whitesmoke;
+  font-family: "Roboto Slab", serif;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-size: 20px;
+  font-style: normal;
+}
+
+.lib-margin {
+  margin-top: 20px;
+}
+.lib-align {
+  text-align: start;
+}
+.overflow {
+  max-height: 800px;
+  overflow-y: auto;
+}
+.button {
+  border: none;
+}
+.home-font {
+  font-family: "Protest Strike", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 40px;
+  color: white;
+}
+
+
+.for-you {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+}
+.music-artcover {
+  width: 100%;
+  height:auto;
 }
