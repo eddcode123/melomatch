@@ -1,19 +1,21 @@
 from dotenv import load_dotenv
 import os
-from sqlalchemy import create_engine, Column, String, Integer, ForeignKey, Date, Float
+from sqlalchemy import (
+    create_engine, Column, String, Integer, ForeignKey, Date, Float
+)
 from sqlalchemy.orm import declarative_base, sessionmaker, relationship
 import csv
 import sys
 from data import add_data
 from get_genre import fetch_spotify_genres
 
-# increase csv capacity
+# Increase CSV capacity to handle large files
 csv.field_size_limit(sys.maxsize)
 
-# Load environment variables
+# Load environment variables from .env file
 load_dotenv()
 
-# Set database user and password
+# Retrieve database user and password from environment variables
 user = os.getenv('SQLUSER')
 password = os.getenv('PASSWORD')
 
@@ -21,11 +23,19 @@ password = os.getenv('PASSWORD')
 database_url = f'mysql+pymysql://{user}:{password}@localhost:3306/Melomatch'
 engine = create_engine(database_url)
 
-# Create a base class for our models
+# Create a base class for the SQLAlchemy models
 Base = declarative_base()
 
-# Define the Artists model
+
 class Artist(Base):
+    """
+    Represents an artist in the database.
+
+    Attributes:
+        id (int): Primary key, unique identifier for the artist.
+        name (str): The name of the artist.
+        songs (relationship): Relationship to the Song model.
+    """
     __tablename__ = 'Artist'
     id = Column(Integer, primary_key=True, unique=True, autoincrement=True)
     name = Column(String(10000))
@@ -33,8 +43,16 @@ class Artist(Base):
     # Define relationship to songs
     songs = relationship('Song', back_populates='artist')
 
-# Define the Genre model
+
 class Genre(Base):
+    """
+    Represents a genre in the database.
+
+    Attributes:
+        id (int): Primary key, unique identifier for the genre.
+        name (str): The name of the genre.
+        songs (relationship): Relationship to the Song model.
+    """
     __tablename__ = 'Genre'
     id = Column(Integer, primary_key=True, unique=True, autoincrement=True)
     name = Column(String(5000))
@@ -42,8 +60,22 @@ class Genre(Base):
     # Define relationship to songs
     songs = relationship('Song', back_populates='genre')
 
-# Define the Song model
+
 class Song(Base):
+    """
+    Represents a song in the database.
+
+    Attributes:
+        id (int): Primary key, unique identifier for the song.
+        name (str): The name of the song.
+        duration (float): The duration of the song in seconds.
+        album (str): The album the song belongs to.
+        popularity (int): The popularity of the song.
+        artist_id (int): Foreign key referencing the artist.
+        genre_id (int): Foreign key referencing the genre.
+        artist (relationship): Relationship to the Artist model.
+        genre (relationship): Relationship to the Genre model.
+    """
     __tablename__ = 'Songs'
     id = Column(Integer, primary_key=True, unique=True, autoincrement=True)
     name = Column(String(5000))
@@ -57,13 +89,18 @@ class Song(Base):
     artist = relationship('Artist', back_populates='songs')
     genre = relationship('Genre', back_populates='songs')
 
-# Create tables in the database
+
+# Create the necessary tables in the database
 Base.metadata.create_all(engine)
 
-# how i inserted artist data in the database
 
-# Extract artist data
 def get_artist_names():
+    """
+    Extracts unique artist names from a CSV file and returns them as a list.
+
+    Returns:
+        list: A list of unique artist names from the CSV file.
+    """
     with open('/home/asavage/Downloads/artists.csv', mode='r') as csv_file:
         artists = list(csv.DictReader(csv_file))
     artist_names = set()  # Use a set to store unique artist names
@@ -73,40 +110,34 @@ def get_artist_names():
                 artist_names.add(value)  # Add to set
     return list(artist_names)  # Convert back to list
 
+
+# Retrieve artist names from CSV file
 artists = get_artist_names()
 
-# Populate database
-Session  = sessionmaker(bind=engine)
+# Create a session to interact with the database
+Session = sessionmaker(bind=engine)
 session = Session()
-# Insert artist names in the artist table
+
+# Insert artist names into the Artist table
 artists_to_insert = [Artist(name=name) for name in artists]
 session.bulk_save_objects(artists_to_insert)
 session.commit()
 
-print("artist names added to artist ")
-
-#artists = get_artist_names('/home/asavage/Downloads/artists.csv')
+print("Artist names added to Artist table")
 
 
-# Populate database
-Session  = sessionmaker(bind=engine)
-session = Session()
-# the add data function does two things which are
-# gets data artist from a cvs file
-# since data from the cvs file has missing data like "duration, genre"
-# the add_data fuction also uses lastfm api to get missing data of every song.
-# it also adds the missing feilds in the music data
-# add geners to Genre table
-
+# Fetch and populate the genre data from Spotify
 spotify_genres = fetch_spotify_genres()
-generes = [Genre(name=name) for name in spotify_genres]
-session.bulk_save_objects(generes)
+genres = [Genre(name=name) for name in spotify_genres]
+session.bulk_save_objects(genres)
 session.commit()
 
-music_data = add_data('/home/asavage/Downloads/songs.csv') 
- # adding data to songs table 
+# Retrieve and process song data
+music_data = add_data('/home/asavage/Downloads/songs.csv')
+
+# Add song data to the Songs table
 for row in music_data:
-    # Add genre to genre table
+    # Find or create the genre for the song
     genre_names = row.get('Genre')
     genre = None
     for value in genre_names:
@@ -116,26 +147,27 @@ for row in music_data:
     if not genre:
         genre = session.query(Genre).filter_by(name='Unknown').first()
 
-    # get artist data
+    # Get artist data, creating a new artist if necessary
     artist_name = row.get('Artist')
-    # query the database to see if artist exist
     artist = session.query(Artist).filter_by(name=artist_name).first()
-    # add artist if they don't exist in songs table
     if not artist:
         artist = Artist(name=artist_name)
         session.add(artist)
         session.commit()
-    # add data to the Songs table
+
+    # Insert the song into the Songs table
     song = Song(
-        name = row.get('Name'),
-        duration = row.get('Duration'),
-        album = row.get('Album'),
-        popularity = row.get('Popularity'),
-        artist_id = artist.id,
-        genre_id = genre.id
+        name=row.get('Name'),
+        duration=row.get('Duration'),
+        album=row.get('Album'),
+        popularity=row.get('Popularity'),
+        artist_id=artist.id,
+        genre_id=genre.id
     )
     session.add(song)
-# commit the transactions
+
+# Commit the transactions to the database
 session.commit()
-# prinyt message if everything works well
-print("Process complete Successfuly")
+
+# Print message upon successful completion
+print("Process completed successfully")

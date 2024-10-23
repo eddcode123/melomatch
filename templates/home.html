@@ -115,7 +115,18 @@
               <!-- javascript to request music data from mysql database using backend api -->
                <script>
                 // request to api for backend data
-                urlEndPoint = ''
+                urlEndPoint = 'http://127.0.0.1:5000/all-music'
+                // use fetch to query the api endpoint
+                fetch(urlEndPoint)
+                .then(reponse => reponse.json())
+                .then(data => {
+                  for (let i = 0; i < data.length; i++) {
+                    for(let j = 0; j < i.length; j++) {
+                      
+                    }
+                  }
+                }
+                )
 
                </script>
                <!-- End of Javascript code -->
