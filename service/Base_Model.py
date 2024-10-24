@@ -7,7 +7,7 @@ from sqlalchemy.orm import declarative_base, sessionmaker, relationship
 import csv
 import sys
 from data import add_data
-from get_genre import fetch_spotify_genres
+from get_genre import fetch_spotify_genres, get_song_imgurls
 
 # Increase CSV capacity to handle large files
 csv.field_size_limit(sys.maxsize)
@@ -71,6 +71,7 @@ class Song(Base):
         duration (float): The duration of the song in seconds.
         album (str): The album the song belongs to.
         popularity (int): The popularity of the song.
+        image_url (str): song art work
         artist_id (int): Foreign key referencing the artist.
         genre_id (int): Foreign key referencing the genre.
         artist (relationship): Relationship to the Artist model.
@@ -84,6 +85,7 @@ class Song(Base):
     popularity = Column(Integer)
     artist_id = Column(Integer, ForeignKey('Artist.id'))
     genre_id = Column(Integer, ForeignKey('Genre.id'))
+    image_url = Column(String(5000))
 
     # Define relationship to artist and genre
     artist = relationship('Artist', back_populates='songs')
@@ -169,5 +171,21 @@ for row in music_data:
 # Commit the transactions to the database
 session.commit()
 
-# Print message upon successful completion
-print("Process completed successfully")
+# add image_url to songs database
+songs = session.query(Song).all()
+
+for song in songs:
+    img_url = get_song_imgurls(song.name)
+    if img_url:
+        song.image_url = img_url
+    else:
+        # set a defualt url to add
+        song.image_url = 'https://images.pexels.com/photos/6877350/\
+            pexels-photo-\
+                6877350.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+# Commit all updates to the database after processing all songs
+session.commit()
+
+
+# # Print message upon successful completion
+# print("Process completed successfully")
