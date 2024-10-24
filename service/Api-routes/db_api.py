@@ -2,6 +2,8 @@ from flask import Flask, jsonify
 import pymysql
 import os
 from dotenv import load_dotenv
+from flask_cors import CORS
+
 
 # Load environment variables from .env file
 load_dotenv()
@@ -50,6 +52,7 @@ def mysql_connector(query):
 # Create the Flask app
 app = Flask(__name__)
 
+CORS(app)
 
 def get_artist_and_genre_names(artist_id, genre_id):
     """
@@ -76,10 +79,10 @@ def get_artist_and_genre_names(artist_id, genre_id):
 
 
 @app.route('/all-music')
-def get_random_10songs():
+def get_random_songs():
     """
-    API endpoint to retrieve 10 random songs with their
-    artist and genre names.
+    API endpoint to retrieve random songs with their
+    artist, image_url, name, duration and genre names.
 
     Returns:
         Response: A JSON response containing a list of 10 songs,
@@ -87,7 +90,7 @@ def get_random_10songs():
     """
     # SQL query to fetch 10 songs
     query = 'SELECT name, duration, artist_id, \
-        genre_id FROM Songs ORDER BY name LIMIT 10;'
+        genre_id, image_url FROM Songs ORDER BY id LIMIT 5;'
     data = list(mysql_connector(query))
 
     # Prepare a list to store song data
@@ -95,7 +98,7 @@ def get_random_10songs():
 
     # Iterate over the retrieved songs and get artist and genre names
     for song in data:
-        name, duration, artist_id, genre_id = song
+        name, duration, artist_id, genre_id, image_url = song
         artist_name, song_genre = get_artist_and_genre_names(artist_id, genre_id)
 
         # Append song data to the list
@@ -103,7 +106,8 @@ def get_random_10songs():
             'name': name,
             'duration': duration,
             'artist': artist_name,
-            'genre': song_genre
+            'genre': song_genre,
+            'image_url' : image_url
         })
 
     # Return the data as a JSON response
@@ -112,4 +116,4 @@ def get_random_10songs():
 
 # Run the Flask app
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)

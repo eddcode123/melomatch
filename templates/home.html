@@ -113,8 +113,39 @@
             <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
               <!--start of songs list in tab-->
               <!-- jinja to request music data from mysql database using backend api -->
+              <script src="../static/js/jquery.js" type="text/javascript"></script>
+              <script type="text/javascript">
+                $(document).ready(function () {
+                  // API endpoint URL
+                  const url = 'http://127.0.0.1:5000/all-music';
+                    // Fetch data from API
+                  fetch(url)
+                    .then(response => response.json())
+                    .then(songs => {
+                      // Loop through each song
+                      for (let i = 0; i < songs.length; i++) {
+                        let songName = songs[i]['name'];
+                        let duration = (songs[i]['duration'] / 1000 / 60).toFixed(2);  // Convert to minutes
+                        let genre = songs[i]['genre'];
+                        let img_url = songs[i]['image_url'];
+                        let artist = songs[i]['artist'];
+                        let no = i + 1;  // Counter for song number
 
-               <!-- End of Javascript code -->
+                        console.log(songName);
+                        // Update HTML content dynamically
+                        $('#no' + no).html(`${no}`);
+                        $('#art' + no).attr('src', img_url);  // Update the image src
+                        $('#title' + no).html(songName);
+                        $('#desc' + no).html(`Song by ${artist}`);
+                        $('#dur' + no).html(`${duration} min`);
+                      }
+                    })
+                    .catch(err => {
+                      console.error('Error fetching data:', err);
+                    });
+                });
+              </script>
+              <!-- End of Javascript code -->
               <div class="m-1 ms-4 col-md-6 row song-color align-items-center">
                 <div id="no1" class="col-1">01</div>
                 <div class="col d-flex">
